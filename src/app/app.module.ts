@@ -7,20 +7,43 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ButtonComponent } from './components/button/button.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
+
+/* ANGULAR MATERIAL */
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment.development';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
+    /* ANGULAR MATERIAL */
+    MatIconModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideFirebaseApp(() => initializeApp({"projectId":"worksync-d07dc","appId":"1:624583881723:web:46db20a961c81c91f6115e","storageBucket":"worksync-d07dc.firebasestorage.app","apiKey":"AIzaSyBjmrUX6SMcMQ7as3QeBbYcZenGuCOTjG0","authDomain":"worksync-d07dc.firebaseapp.com","messagingSenderId":"624583881723"})),
+    provideFirestore(() => getFirestore())
   ],
   bootstrap: [AppComponent]
 })
