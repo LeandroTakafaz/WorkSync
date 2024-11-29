@@ -17,7 +17,7 @@
                 <input matInput (keyup)="applyFilter($event)" placeholder="Digite sua busca" #input>
             </mat-form-field>
             
-<!--             <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
+            <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
 
                 <ng-container matColumnDef="id">
                   <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
@@ -70,7 +70,7 @@
                 </tr>
               </table>
             
-              <mat-paginator [pageSizeOptions]="[3, 5, 7]" aria-label="Selecione páginas de funcionários"></mat-paginator> -->
+              <mat-paginator class="shadow-sm" [pageSizeOptions]="[3, 5, 7]" aria-label="Selecione páginas de funcionários"></mat-paginator>
         </div>
     </div>
 </div>

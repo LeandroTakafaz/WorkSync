@@ -13,8 +13,6 @@ import { MenuComponent } from './components/menu/menu.component';
 /* ANGULAR MATERIAL */
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -22,6 +20,8 @@ import { environment } from '../environments/environment.development';
 import { CrudComponent } from './pages/crud/crud.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule} from '@angular/material/table';
+import { initializeApp } from "firebase/app";
 
 @NgModule({
   declarations: [
@@ -38,7 +38,11 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    
 
     /* ANGULAR MATERIAL */
     MatIconModule,
@@ -48,8 +52,6 @@ import { MatInputModule } from '@angular/material/input';
   ],
   providers: [
     provideAnimationsAsync(),
-    provideFirebaseApp(() => initializeApp({"projectId":"worksync-d07dc","appId":"1:624583881723:web:46db20a961c81c91f6115e","storageBucket":"worksync-d07dc.firebasestorage.app","apiKey":"AIzaSyBjmrUX6SMcMQ7as3QeBbYcZenGuCOTjG0","authDomain":"worksync-d07dc.firebaseapp.com","messagingSenderId":"624583881723"})),
-    provideFirestore(() => getFirestore())
   ],
   bootstrap: [AppComponent]
 })
