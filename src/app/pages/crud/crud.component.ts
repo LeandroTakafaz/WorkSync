@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-crud',
@@ -16,7 +17,14 @@ export class CrudComponent {
   }
 
   getListUsers() {
-    this.usersService.getAllUsers().subscribe();
+    this.usersService.getAllUsers().subscribe({
+      next: (response: any) => {
+        console.log('Lista usuários firebase', response);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
   }
 
   applyFilter(event: Event) {
