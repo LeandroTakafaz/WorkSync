@@ -19,6 +19,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment.development';
+import { CrudComponent } from './pages/crud/crud.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -27,11 +30,14 @@ import { environment } from '../environments/environment.development';
     LoginComponent,
     HomeComponent,
     MenuComponent,
+    CrudComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
 
     /* ANGULAR MATERIAL */
